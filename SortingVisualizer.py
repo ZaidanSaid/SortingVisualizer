@@ -1,4 +1,5 @@
 from numpy import * 
+import time
 import pygame
 import random
 import math
@@ -155,6 +156,8 @@ def main():
 				next(sorting_algorithm_generator)
 			except StopIteration:
 				sorting = False
+				end = time.time()
+				print(end - start)
 		else:
 			draw(draw_info, sorting_algo_name, ascending)
 
@@ -173,6 +176,7 @@ def main():
 			elif event.key == pygame.K_SPACE and sorting == False:
 				sorting = True
 				sorting_algorithm_generator = sorting_algorithm(draw_info, ascending)
+				start = time.time()
 			elif event.key == pygame.K_a and not sorting:
 				ascending = True
 			elif event.key == pygame.K_d and not sorting:
